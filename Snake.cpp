@@ -5,7 +5,8 @@
 using namespace std;
 void gotoxy( int column, int line );
 struct Point{
-    int x,y;
+    int x;
+    int y;
 };
 class CONRAN{
 public:
