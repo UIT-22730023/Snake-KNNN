@@ -31,7 +31,56 @@ Việc thiết kế trò chơi được nhóm chia thành 5 phần:
     \centering
     \includegraphics[scale=0.6]{hinh/snake1.png}
 \end{figure}
+\begin{itemize}
+    \item Rắn được tạo thành từ các ký tự "X" nối tiếp nhau.
+    \item Mặc định con rắn có chiều dài là 3 và bắt đầu tính điểm từ 4.
+\end{itemize}
+\subsection{Xử lý di chuyển}
+\begin{itemize}
+    \item Nếu di chuyển lên (W) thì y trừ đi 1 đơn vị và x giữ nguyên.
+    \item Nếu di chuyển xuống (S) thì y cộng thêm 1 và x giữ nguyên.
+    \item Nếu di chuyển qua trái (A) thì x trừ đi 1 và y giữ nguyên
+    \item Nếu di chuyển qua phải (D) thì x cộng thêm 1 và y giữ nguyên
+\end{itemize}
 
+\subsection{Tạo viền}
+\begin{itemize}
+    \item Khung viền có dạng hình chữ nhật với chiều dài là 40 và rộng là 20.
+    \item
+\end{itemize}
 
+\subsection{Xử lý va chạm}
+\begin{itemize}
+    \item Ta kiểm tra nếu rắn đụng đầu vào tường hay tự cắn chính mình bằng cách xem tọa độ đầu có trùng với tọa độ viền hay tọa độ thân rắn hay không. Nếu hai tọa độ trùng nhau => Trò chơi kết thúc.
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{chapters/hinh/snake2.png}
+\end{figure}
+\begin{itemize}
+    \item Để kiểm tra rắn có ăn được quà hay không, ta kiểm tra tọa độ phần đầu của con
+rắn và tọa độ của quà. Nếu cả hai tọa độ trùng nhau (tức là rắn ăn được mồi) thì tăng chiều dài con rắn và cộng thêm 1 điểm, quà sẽ mất và tạo ngẫu nhiên quà ở vị trí mới.
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{chapters/hinh/snake3.png}
+\end{figure}
 
+\subsection{Tạo menu}
+\begin{itemize}
+    \item Menu sẽ gồm 2 lựa chọn: “Bắt đầu” (phím 1) và “Thoát” (phím 2).
+    \item Nếu chọn "Bắt đầu": người chơi sẽ lựa chọn level từ 1 đến 5 (lần lượt từ phím 1 đến phím 5) và bắt đầu chơi. Người chơi có thể thoát bất cứ lúc nào bằng cách chọn phím ’q’.
+    \item Nếu chọn "Thoát": trò chơi sẽ kết thúc.
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{chapters/hinh/snake4.png}
+\end{figure}
+\begin{itemize}
+    \item Sau khi kết thúc màn chơi (hoàn thành màn chơi hoặc thua do rắn đụng đầu vào tường/rắn tự cắn chính mình), người chơi có thể nhấn phím ’y’ để chơi tiếp hoặc nhấn phím ’n’ để thoát trò chơi.
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{chapters/hinh/snake5.png}
+\end{figure}
 \end{document}
