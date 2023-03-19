@@ -11,17 +11,21 @@ Rắn săn mồi là một trò chơi cổ điển xuất hiện vào năm 1997 
 \end{itemize}
 
 \begin{itemize}
-\item Người chơi điều khiển con rắn thông qua phím 4 phím: A ($\leftarrow$), D ($\rightarrow$), S ($\downarrow$), W ($\uparrow$).
+\item Người chơi điều khiển con rắn thông qua phím 4 phím:  ($\leftarrow$),  ($\rightarrow$),  ($\downarrow$),  ($\uparrow$).
 \end{itemize}
-
+\begin{itemize}
+\item Mỗi 3s sẽ random bóng và chỉ xuất hiện tối đa 5 bóng.
+\item Khi rắn ăn được 1 bóng sẽ được cộng thêm 10 điểm.
+\end{itemize}
 \section{Viết chương trình}
 \subsection{Ngôn ngữ lập trình}
-Ngôn ngữ C++
+Ngôn ngữ Js,HTML
 \subsection{Thiết kế trò chơi}
 Việc thiết kế trò chơi được nhóm chia thành 5 phần:
 \begin{itemize}
     \item Tạo con rắn
     \item Xử lí di chuyển
+    \item Tạo bóng
     \item Tạo viền
     \item Xử lí va chạm
     \item Tạo menu
@@ -31,18 +35,30 @@ Việc thiết kế trò chơi được nhóm chia thành 5 phần:
     \centering
     \includegraphics[scale=0.6]{hinh/snake1.png}
 \end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{hinh/snake1_2.png}
+\end{figure}
 \begin{itemize}
-    \item Rắn được tạo thành từ các ký tự "X" nối tiếp nhau.
-    \item Mặc định con rắn có chiều dài là 3 và bắt đầu tính điểm từ 4.
+    \item Rắn được tạo thành từ các ô vuông nối tiếp nhau.
+    \item Mặc định con rắn có kích thước 20x20 và bắt đầu tại toạ độ (100, 100).
 \end{itemize}
 \subsection{Xử lý di chuyển}
 \begin{itemize}
-    \item Nếu di chuyển lên (W) thì y trừ đi 1 đơn vị và x giữ nguyên.
-    \item Nếu di chuyển xuống (S) thì y cộng thêm 1 và x giữ nguyên.
-    \item Nếu di chuyển qua trái (A) thì x trừ đi 1 và y giữ nguyên
-    \item Nếu di chuyển qua phải (D) thì x cộng thêm 1 và y giữ nguyên
+    \item Nếu di chuyển lên ($\uparrow$) thì y trừ đi 20 đơn vị và x giữ nguyên.
+    \item Nếu di chuyển xuống ($\downarrow$) thì y cộng thêm 20 và x giữ nguyên.
+    \item Nếu di chuyển qua trái ($\leftarrow$) thì x trừ đi 20 và y giữ nguyên
+    \item Nếu di chuyển qua phải ($\rightarrow$) thì x cộng thêm 20 và y giữ nguyên
 \end{itemize}
-
+\subsection{Tạo bóng}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{hinh/bound.png}
+\end{figure}
+\begin{itemize}
+    \item Bóng được tạo thành từ các hình tròn.
+    \item Mặc định bóng bán kính 7 và toạ độ xuất hiện random không trùng với những bóng trước.
+\end{itemize}
 \subsection{Tạo viền}
 \begin{itemize}
     \item Khung viền có dạng hình chữ nhật với chiều dài là 40 và rộng là 20.
@@ -50,7 +66,7 @@ Việc thiết kế trò chơi được nhóm chia thành 5 phần:
 \end{itemize}
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.6]{chapters/hinh/snake6.png}
+    \includegraphics[scale=0.4]{chapters/hinh/snake6.png}
 \end{figure}
 
 \subsection{Xử lý va chạm}
@@ -59,7 +75,7 @@ Việc thiết kế trò chơi được nhóm chia thành 5 phần:
 \end{itemize}
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.6]{chapters/hinh/snake2.png}
+    \includegraphics[scale=0.4]{chapters/hinh/snake2.png}
 \end{figure}
 \begin{itemize}
     \item Để kiểm tra rắn có ăn được quà hay không, ta kiểm tra tọa độ phần đầu của con
@@ -72,19 +88,9 @@ rắn và tọa độ của quà. Nếu cả hai tọa độ trùng nhau (tức 
 
 \subsection{Tạo menu}
 \begin{itemize}
-    \item Menu sẽ gồm 2 lựa chọn: “Bắt đầu” (phím 1) và “Thoát” (phím 2).
-    \item Nếu chọn "Bắt đầu": người chơi sẽ lựa chọn level từ 1 đến 5 (lần lượt từ phím 1 đến phím 5) và bắt đầu chơi. Người chơi có thể thoát bất cứ lúc nào bằng cách chọn phím ’q’.
-    \item Nếu chọn "Thoát": trò chơi sẽ kết thúc.
+    \item Menu: “Start Game”.
+    \item Nếu chọn "Start Game": người chơi sẽ lựa chọn dễ và khó, khi chơi người chơi có thể nhấn tạm dừng game và tiếp tục,sau khi thua người chơi có thể được chọn lại chế độ.
+    \item Nếu chọn chế độ "Dễ": khi rắn chạm tường rắn sẽ quay về phía đối sau và tiếp tục.
+    \item Nếu chọn chế độ "Khó": khi rắn chạm tường game sẽ thua.
 \end{itemize}
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.6]{chapters/hinh/snake4.png}
-\end{figure}
-\begin{itemize}
-    \item Sau khi kết thúc màn chơi (hoàn thành màn chơi hoặc thua do rắn đụng đầu vào tường/rắn tự cắn chính mình), người chơi có thể nhấn phím ’y’ để chơi tiếp hoặc nhấn phím ’n’ để thoát trò chơi.
-\end{itemize}
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.5]{chapters/hinh/snake5.png}
-\end{figure}
 \end{document}
