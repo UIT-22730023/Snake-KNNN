@@ -208,9 +208,9 @@ class Game {
                 return true;
             if (this.mode == 1) {
                 const hitLeftWall = this.snake[i].x < 0;
-                const hitRightWall = this.snake[i].x > this.snakeboard.width;
+                const hitRightWall = this.snake[i].x > this.snakeboard.width - 20;
                 const hitToptWall = this.snake[i].y < 0;
-                const hitBottomWall = this.snake[i].y > this.snakeboard.height;
+                const hitBottomWall = this.snake[i].y > this.snakeboard.height - 20;
                 this.backMove(this.snake[i], hitLeftWall, hitRightWall, hitToptWall, hitBottomWall);
             }
         }
